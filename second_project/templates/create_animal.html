@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Animal</title>
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Create Animal</h1>
+    <form method="POST">
+        <label for="id">ID:</label>
+        <input type="text" id="id" name="id" required><br>
+        <label for="genus_id">Genus:</label>
+        <select id="genus_id" name="genus_id" required>
+            {% for genus in genera %}
+            <option value="{{ genus[0] }}">{{ genus[1] }}</option>
+            {% endfor %}
+        </select><br>
+        <label for="gender">Gender:</label>
+        <input type="text" id="gender" name="gender" required><br>
+        <label for="estimated_size">Estimated Size:</label>
+        <input type="number" id="estimated_size" name="estimated_size" step="0.1" required><br>
+        <label for="estimated_age">Estimated Age:</label>
+        <input type="number" id="estimated_age" name="estimated_age" step="1" required><br>
+        <label for="estimated_weight">Estimated Weight:</label>
+        <input type="number" id="estimated_weight" name="estimated_weight" step="1" required><br>
+        <input type="submit" value="Create Animal">
+        <a href="/index">Back</a>
+    </form>
+</body>
+</html>
